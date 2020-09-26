@@ -1,32 +1,45 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
+  <div>
+    <!-- TODO: 路由占位 -->
+    <!-- <router-view></router-view> -->
+
+    <my-addition></my-addition>
+
+
+    <h3>-----------------------------</h3>
+
+
+    <my-subtraction></my-subtraction>
+
   </div>
 </template>
 
-<style lang="less">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+<script>
 
-#nav {
-  padding: 30px;
 
-  a {
-    font-weight: bold;
-    color: #2c3e50;
+// TODO 导入 index 组件
+// import index from '@/views/index.vue'
 
-    &.router-link-exact-active {
-      color: #42b983;
+const Addition = () =>
+    import ( /* webpackChunkName: "Addition_Subtraction." */ '@/views/Addition.vue')
+
+const Subtraction = () =>
+    import ( /* webpackChunkName: "Addition_Subtraction." */ '@/views/Subtraction.vue')
+
+
+
+export default {
+  data(){
+    return {
+
     }
+  },
+
+  components:{
+    'my-addition':Addition,
+    'my-subtraction':Subtraction
   }
 }
-</style>
+</script>
+
+<style></style>
